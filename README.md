@@ -139,6 +139,54 @@ Settings → Actions → General → Workflow permissions
 ![alt text](image-2.png)
 ✅ “Read and write permissions”으로 변경
 
+
+배포하려는 대상이 같은 저장소의 gh-pages 브랜치 맞으세요?
+아니면 다른 저장소(예: edumgt/re5-0901 → edumgt/other-repo)로 배포하려는 건가요?
+➡️ 다른 저장소라면 GITHUB_TOKEN 대신 **PAT (Personal Access Token)**이 필요합니다.
+
+나의 말:
+gh-pages 브랜치 라는 걸 만들어야 하나?
+ChatGPT의 말:
+
+좋은 포인트 집으셨어요 👍
+
+🔑 결론부터
+
+👉 직접 gh-pages 브랜치를 미리 만들 필요는 없습니다.
+배포 워크플로우(peaceiris/actions-gh-pages 같은 액션)가 빌드된 결과물(dist/)을 자동으로 gh-pages 브랜치에 push하면서, 브랜치가 없으면 새로 만들어 줍니다.
+
+⚙️ 동작 방식
+
+GitHub Actions 실행
+
+npm run build → 결과물 dist/ 생성
+
+actions-gh-pages가 dist/ 내용을 새로운 커밋으로 gh-pages 브랜치에 push
+
+없다면 gh-pages 브랜치를 생성
+
+있다면 gh-pages 브랜치를 덮어씀 (커밋 기록 단순화)
+
+🚀 이후 해야 할 설정
+
+GitHub 저장소 → Settings → Pages
+
+Source를 Deploy from a branch로 설정
+
+Branch: gh-pages 선택
+
+/ (root) 선택
+
+이렇게 하면 https://USERNAME.github.io/REPO-NAME/에서 페이지가 서비스됩니다.
+
+✅ 요약
+
+❌ gh-pages 브랜치 직접 안 만들어도 됨
+
+✅ GitHub Actions가 자동 생성/갱신
+
+🔧 GitHub Pages 설정에서 gh-pages 브랜치를 소스로 지정해야 함
+
 ![alt text](image-3.png)
 
 이렇게 해야 github-actions[bot]이 gh-pages 브랜치에 push 할 수 있습니다.
