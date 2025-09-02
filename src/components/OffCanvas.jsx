@@ -10,6 +10,12 @@ function OffCanvas({ buttonLabel = "메뉴", title = "사이드 메뉴" }) {
     offcanvas.show();
   };
 
+  // 메뉴 클릭 시 OffCanvas 닫기
+  const closeOffCanvas = () => {
+    const offcanvas = Offcanvas.getInstance(offCanvasRef.current);
+    if (offcanvas) offcanvas.hide();
+  };
+
   return (
     <div>
       {/* 토글 버튼 */}
@@ -31,17 +37,27 @@ function OffCanvas({ buttonLabel = "메뉴", title = "사이드 메뉴" }) {
         <div className="offcanvas-body">
           <ul className="list-disc pl-4 space-y-2">
             <li>
-              <Link to="/dashboard" className="text-blue-600" data-bs-dismiss="offcanvas">
+              <Link to="/" className="text-blue-600" onClick={closeOffCanvas}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/app2" className="text-blue-600" onClick={closeOffCanvas}>
+                직원목록
+              </Link>
+            </li>
+            <li>
+              <Link to="/dashboard" className="text-blue-600" onClick={closeOffCanvas}>
                 대시보드
               </Link>
             </li>
             <li>
-              <Link to="/members" className="text-blue-600" data-bs-dismiss="offcanvas">
+              <Link to="/members" className="text-blue-600" onClick={closeOffCanvas}>
                 회원 관리
               </Link>
             </li>
             <li>
-              <Link to="/settings" className="text-blue-600" data-bs-dismiss="offcanvas">
+              <Link to="/settings" className="text-blue-600" onClick={closeOffCanvas}>
                 설정
               </Link>
             </li>

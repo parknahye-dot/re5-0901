@@ -5,7 +5,7 @@ import App from "./App";
 import App2 from "./App2"; // ✅ 새로 만들 App2
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "./index.css";
+import "./assets/css/index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
