@@ -111,3 +111,32 @@ Vite 앱 빌드 (npm run build)
 GitHub Pages가 이를 서비스
 
 ✅ 이렇게 하면 Vite + React 앱이 main 브랜치에 푸시될 때마다 GitHub Pages로 자동 배포됩니다.
+
+
+remote: Permission to edumgt/re5-0901.git denied to github-actions[bot].
+  fatal: unable to access 'https://github.com/edumgt/re5-0901.git/': The requested URL returned error: 403
+ChatGPT의 말:
+
+403 에러 메시지 보니까, GitHub Actions에서 github-actions[bot]이 저장소에 push 권한이 없어서 발생하는 전형적인 상황이에요.
+즉, peaceiris/actions-gh-pages가 gh-pages 브랜치에 결과물을 push하려고 했는데 권한이 거부된 겁니다.
+
+🔍 원인
+
+GITHUB_TOKEN 권한 문제
+기본적으로 GitHub Actions가 생성하는 GITHUB_TOKEN은 “읽기 전용”일 수 있습니다.
+
+저장소 Settings → Actions → General → Workflow permissions에서 Read repository contents permission만 활성화돼 있는 경우.
+
+기존 브랜치 보호 규칙(Protected Branch) 때문에 gh-pages에 push 불가한 경우.
+
+✅ 해결 방법
+1. GITHUB_TOKEN 권한 부여
+
+저장소에서 설정 변경:
+
+Settings → Actions → General → Workflow permissions
+![alt text](image-1.png)
+![alt text](image-2.png)
+✅ “Read and write permissions”으로 변경
+
+이렇게 해야 github-actions[bot]이 gh-pages 브랜치에 push 할 수 있습니다.
