@@ -4,7 +4,7 @@ import "tui-grid/dist/tui-grid.css";
 import BootStrapModal from "./components/BootStrapModal";
 import OffCanvas from "./components/OffCanvas";
 
-function App() {
+function App2() {
   const gridRef = useRef(null);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function App() {
       {/* 상단 영역 */}
       <div className="w-full flex justify-between items-center mb-3">
         <OffCanvas buttonLabel="☰" title="사이드 메뉴" />
-        <h1 className="text-xl font-bold">회원 목록 1</h1>
+        <h1 className="text-xl font-bold">회원 목록 2</h1>
         <BootStrapModal buttonLabel="회원정보입력" />
       </div>
 
@@ -55,4 +55,4 @@ function App() {
   );
 }
 
-export default App;
+export default App2;
