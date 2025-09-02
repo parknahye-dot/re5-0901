@@ -3,7 +3,10 @@ name: Deploy Vite + React to GitHub Pages
 on:
   push:
     branches:
-      - main   # main 브랜치 푸시 시 실행
+      - main
+
+permissions:
+  contents: write   # ✅ GITHUB_TOKEN 으로 push 권한 부여
 
 jobs:
   build-and-deploy:
