@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
 import Grid from "tui-grid";
 import "tui-grid/dist/tui-grid.css";
-import BootStrapModal from "./components/BootStrapModal"; // ✅ 모달 컴포넌트 import
+import BootStrapModal from "./components/BootStrapModal"; // ✅ 모달 컴포넌트
+import OffCanvas from "./components/OffCanvas";           // ✅ 오프캔버스
+import { Menu } from "lucide-react";                      // ✅ 햄버거 아이콘 (lucide-react)
 
 function App() {
   const gridRef = useRef(null);
@@ -41,16 +43,28 @@ function App() {
 
   return (
     <div className="p-10">
-      {/* ✅ 상단 타이틀 + 버튼 영역 */}
-      <div className="w-full max-w-4xl flex justify-between items-center mb-3">
+      {/* ✅ 상단 헤더 */}
+      <div className="w-full flex justify-between items-center mb-3">
+        {/* 좌측: 햄버거 메뉴 */}
+        <OffCanvas buttonLabel={<Menu size={24} />} title="사이드 메뉴">
+          <ul className="list-disc pl-4">
+            <li>대시보드</li>
+            <li>회원 관리</li>
+            <li>설정</li>
+          </ul>
+        </OffCanvas>
+
+        {/* 가운데: 제목 */}
         <h1 className="text-xl font-bold">회원 목록</h1>
-        <BootStrapModal buttonLabel="회원정보입력" /> {/* 버튼 레이블 전달 */}
+
+        {/* 우측: 회원정보 입력 버튼 */}
+        <BootStrapModal buttonLabel="회원정보입력" />
       </div>
 
       {/* ✅ Grid */}
       <div
         ref={gridRef}
-        className="w-full h-[400px] max-w-4xl border rounded-lg shadow-lg"
+        className="w-full h-[400px] border rounded-lg shadow-lg bg-white"
       />
     </div>
   );
