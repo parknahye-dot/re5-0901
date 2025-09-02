@@ -139,4 +139,6 @@ Settings → Actions → General → Workflow permissions
 ![alt text](image-2.png)
 ✅ “Read and write permissions”으로 변경
 
+![alt text](image-3.png)
+
 이렇게 해야 github-actions[bot]이 gh-pages 브랜치에 push 할 수 있습니다.
