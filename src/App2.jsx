@@ -4,7 +4,7 @@ import "tui-grid/dist/tui-grid.css";
 import BootStrapModal from "./components/BootStrapModal";
 import OffCanvas from "./components/OffCanvas";
 
-function App() {
+function App2() {
   const gridRef = useRef(null);
 
   useEffect(() => {
@@ -55,4 +55,4 @@ function App() {
   );
 }
 
-export default App;
+export default App2;
