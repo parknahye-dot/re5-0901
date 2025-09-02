@@ -1,0 +1,24 @@
+/* index.css (또는 main.css) */
+
+/* Tailwind 기본 지시어 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TUI Grid 기본 CSS */
+@import "tui-grid/dist/tui-grid.css";
+
+/* Pretendard CSS */
+@import "pretendard/dist/web/static/pretendard.css";
+
+/* 전역 폰트 적용 (Grid 포함) */
+body,
+.tui-grid,
+.tui-grid-container,
+.tui-grid-body-area,
+.tui-grid-cell {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif !important;
+  font-size: 16px;
+}
