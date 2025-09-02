@@ -188,5 +188,8 @@ Branch: gh-pages 선택
 🔧 GitHub Pages 설정에서 gh-pages 브랜치를 소스로 지정해야 함
 
 ![alt text](image-3.png)
-
+![alt text](image-4.png)
 이렇게 해야 github-actions[bot]이 gh-pages 브랜치에 push 할 수 있습니다.
+
+결과
+![alt text](image-5.png)
